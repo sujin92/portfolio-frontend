@@ -145,7 +145,7 @@ const OverlayMenu = ({ isOpen, onClose }) => {
       <div className="menu__item menu__item--2" data-direction="tb">
         <div className="menu__item-inner">
           <a
-            href="https://github.com/sujin-lim"
+            href="https://github.com/sujin92"
             target="_blank"
             rel="noopener noreferrer"
             className="github-link"

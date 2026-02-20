@@ -1,5 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../styles/Contact.css";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Contact() {
   const API_URL =
@@ -10,7 +15,63 @@ export default function Contact() {
   const [commentInput, setCommentInput] = useState("");
   const [comments, setComments] = useState([]);
   const [visualEffects, setVisualEffects] = useState([]);
+
+  const container = useRef(null);
   const chatScrollRef = useRef(null);
+  const chatWindowRef = useRef(null);
+  const likeBtnRef = useRef(null);
+
+  useGSAP(
+    () => {
+      gsap.from(".project-header > *", {
+        scrollTrigger: {
+          trigger: ".project-header",
+          start: "top 85%",
+        },
+        y: 30,
+        opacity: 0,
+        stagger: 0.2,
+        duration: 1,
+        ease: "power3.out",
+      });
+
+      gsap.from(chatWindowRef.current, {
+        scrollTrigger: {
+          trigger: chatWindowRef.current,
+          start: "top 85%",
+        },
+        y: 100,
+        scale: 0.9,
+        opacity: 0,
+        duration: 1.2,
+        ease: "elastic.out(1, 0.75)",
+      });
+
+      gsap.from(".message-row", {
+        scrollTrigger: {
+          trigger: ".chat-messages-area",
+          start: "top 90%",
+        },
+        x: (i, el) => (el.classList.contains("me") ? 30 : -30),
+        opacity: 0,
+        stagger: 0.1,
+        duration: 0.8,
+        ease: "power2.out",
+        delay: 0.5,
+      });
+    },
+    { scope: container },
+  );
+
+  const animateLike = () => {
+    gsap.to(likeBtnRef.current, {
+      scale: 1.5,
+      duration: 0.1,
+      yoyo: true,
+      repeat: 1,
+      ease: "power2.out",
+    });
+  };
 
   const triggerEffect = (effectClass, emojiChar) => {
     const id = Date.now() + Math.random();
@@ -40,6 +101,7 @@ export default function Contact() {
   const handleLike = () => {
     if (!hasLiked) {
       setHasLiked(true);
+      animateLike();
       fetch(`${API_URL}/like`, { method: "POST" })
         .then((res) => res.json())
         .then((data) => setLikes(data.likes))
@@ -62,10 +124,7 @@ export default function Contact() {
       const data = await res.json().catch(() => ({}));
 
       if (!res.ok || !data.success) {
-        const msg =
-          data?.message ||
-          data?.error ||
-          "등록에 실패했습니다. 잠시 후 다시 시도해주세요.";
+        const msg = data?.message || data?.error || "등록 실패!";
         alert(msg);
         return;
       }
@@ -108,6 +167,12 @@ export default function Contact() {
       setTimeout(() => {
         if (chatScrollRef.current) {
           chatScrollRef.current.scrollTop = chatScrollRef.current.scrollHeight;
+          gsap.from(".message-row:last-child", {
+            y: 20,
+            opacity: 0,
+            duration: 0.5,
+            ease: "back.out(1.7)",
+          });
         }
       }, 100);
     } catch (err) {
@@ -117,7 +182,7 @@ export default function Contact() {
   };
 
   return (
-    <section className="contact-wrap" id="contact">
+    <section className="contact-wrap" id="contact" ref={container}>
       <div className="section-fluid-main">
         <div className="project-header">
           <h2 className="project-label">CONTACT</h2>
@@ -129,13 +194,14 @@ export default function Contact() {
             <button
               className={`chat-like-btn ${hasLiked ? "liked" : ""}`}
               onClick={handleLike}
+              ref={likeBtnRef}
             >
               {hasLiked ? "❤️" : "🤍"}
             </button>
             <span>{likes}명이 이 포트폴리오를 응원합니다!</span>
           </div>
 
-          <div className="kakao-chat-window">
+          <div className="kakao-chat-window" ref={chatWindowRef}>
             <div className="effect-layer">
               {visualEffects.map((eff) => (
                 <span

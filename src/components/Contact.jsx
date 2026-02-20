@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import "../styles/Contact.css";
 
 export default function Contact() {
-  const API_URL = "http://portfolio-backend-production-ed80.up.railway.app";
+  const API_URL =
+    "https://portfolio-backend-production-ed80.up.railway.app/api";
 
   const [likes, setLikes] = useState(0);
   const [hasLiked, setHasLiked] = useState(false);

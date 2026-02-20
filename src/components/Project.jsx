@@ -249,6 +249,8 @@ export default function Project() {
 
   useEffect(() => {
     if (selected) {
+      document.body.style.overflow = "hidden";
+
       gsap.to(["#header", ".scroll-to-top-btn"], { opacity: 0, duration: 0.3 });
       const tl = gsap.timeline();
       tl.fromTo(
@@ -268,7 +270,13 @@ export default function Project() {
           { x: 0, opacity: 1, stagger: 0.1, duration: 0.5, ease: "power2.out" },
           "-=0.4",
         );
+    } else {
+      document.body.style.overflow = "";
     }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [selected]);
 
   useEffect(() => {

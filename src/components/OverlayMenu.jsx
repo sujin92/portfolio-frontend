@@ -1,10 +1,20 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import "../styles/OverlayMenu.css";
 
 const OverlayMenu = ({ isOpen, onClose }) => {
   const container = useRef();
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+
+      return () => {
+        document.body.style.overflow = "auto";
+      };
+    }
+  }, [isOpen]);
 
   const handleNavigation = (id) => {
     onClose();

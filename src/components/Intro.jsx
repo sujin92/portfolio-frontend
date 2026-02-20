@@ -8,7 +8,13 @@ const Intro = () => {
 
   useGSAP(
     () => {
-      const tl = gsap.timeline();
+      document.body.style.overflow = "hidden";
+
+      const tl = gsap.timeline({
+        onComplete: () => {
+          document.body.style.overflow = "auto";
+        },
+      });
 
       gsap.set(".char", { opacity: 0, y: 20 });
       gsap.set(".underline-wrapper", { clipPath: "inset(0 100% 0 0)" });
@@ -42,6 +48,10 @@ const Intro = () => {
           ease: "power4.inOut",
           delay: 1,
         });
+
+      return () => {
+        document.body.style.overflow = "auto";
+      };
     },
     { scope: container },
   );

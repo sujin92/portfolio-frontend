@@ -206,3 +206,23 @@ input {
 a {
   text-decoration: none;
 }
+
+::selection {
+  background-color: #a0ea00;
+  color: #111111;
+}
+
+::-moz-selection {
+  background-color: #a0ea00;
+  color: #111111;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #333333 #ffffff00;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}

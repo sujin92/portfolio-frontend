@@ -229,6 +229,7 @@ export default function Project() {
           duration: 0.3,
           onComplete: () => {
             setSelected(null);
+            document.body.style.overflow = ""; // ✨ 모달이 완전히 닫힐 때 스크롤 허용!
             gsap.to(["#header", ".scroll-to-top-btn"], {
               opacity: 1,
               duration: 0.3,
@@ -249,7 +250,7 @@ export default function Project() {
 
   useEffect(() => {
     if (selected) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = "hidden"; // ✨ 모달이 열릴 때 스크롤 차단!
 
       gsap.to(["#header", ".scroll-to-top-btn"], { opacity: 0, duration: 0.3 });
       const tl = gsap.timeline();
@@ -270,13 +271,8 @@ export default function Project() {
           { x: 0, opacity: 1, stagger: 0.1, duration: 0.5, ease: "power2.out" },
           "-=0.4",
         );
-    } else {
-      document.body.style.overflow = "";
     }
-
-    return () => {
-      document.body.style.overflow = "";
-    };
+    // 🗑️ 여기에 있던 else문과 return() 클린업 함수를 삭제하여 Intro 로딩 스크롤과 충돌을 막았습니다.
   }, [selected]);
 
   useEffect(() => {

@@ -130,7 +130,11 @@ const About = () => {
             </p>
           </div>
 
-          <a href="/resume.pdf" download className="resume-btn">
+          <a
+            href="/resume.pdf"
+            download="임수진_이력서.pdf"
+            className="resume-btn"
+          >
             <div>{splitText("이력서 다운로드")}</div>
           </a>
         </div>

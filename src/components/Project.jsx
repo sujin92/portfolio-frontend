@@ -22,7 +22,7 @@ export default function Project() {
         concept:
           "GSAP 인터랙티브 모션으로 에이전시의 창의성을 표현한 인터랙티브 웹사이트",
         detail:
-          "브랜드 아이덴티티의 핵심인 레드를 포인트 컬러로 채택하고 깊이감 있는 블랙과 조화시켜 강렬한 시각적 대비를 구현한 디자인 에이전시 사이트입니다...",
+          "브랜드 아이덴티티의 핵심인 레드를 포인트 컬러로 채택하고 깊이감 있는 블랙과 조화시켜 강렬한 시각적 대비를 구현한 디자인 에이전시 사이트입니다.",
         link: "https://koad-frontend.vercel.app/",
       },
       {
@@ -38,7 +38,7 @@ export default function Project() {
         concept:
           "Lottie 애니메이션과 다채로운 컬러로 구현한 아동 친화적 예약 플랫폼",
         detail:
-          "부산 서구청의 한형석자유아동극장을 위해 제작된 인터랙티브 웹 플랫폼입니다...",
+          "부산 서구청의 한형석자유아동극장을 위해 제작된 인터랙티브 웹 플랫폼입니다.",
         link: "https://sgjayutheater.com/",
       },
       {
@@ -54,7 +54,7 @@ export default function Project() {
         concept:
           "신뢰를 상징하는 블루 컬러와 GSAP 모션으로 기업의 비전을 시각화한 브랜드 플랫폼",
         detail:
-          "기업의 신뢰도와 전문성을 강조하기 위해 블루 컬러를 기조로 구축된 브랜드 홍보 웹사이트입니다...",
+          "기업의 신뢰도와 전문성을 강조하기 위해 블루 컬러를 기조로 구축된 브랜드 홍보 웹사이트입니다.",
         link: "https://www.sunin.co.kr/",
       },
       {
@@ -69,7 +69,7 @@ export default function Project() {
         modalBg: "/images/project-modal04.jpg",
         concept: "고도화된 예약 시스템 및 AI 기반 풀스택 플랫폼",
         detail:
-          "기업 내 유휴 공장을 공유형으로 전환하여 운영하기 위한 통합 예약 사이트입니다...",
+          "기업 내 유휴 공장을 공유형으로 전환하여 운영하기 위한 통합 예약 사이트입니다.",
         link: "",
       },
       {
@@ -85,7 +85,7 @@ export default function Project() {
         concept:
           "정보의 위계와 학습 몰입도를 최우선으로 설계한 개발 교육 플랫폼 디자인 및 퍼블리싱",
         detail:
-          "학습 목적에 충실한 개발 강의 교육 사이트로, 정보의 명확한 전달과 사용자 편의성에 집중한 디자인 및 퍼블리싱 프로젝트입니다...",
+          "학습 목적에 충실한 개발 강의 교육 사이트로, 정보의 명확한 전달과 사용자 편의성에 집중한 디자인 및 퍼블리싱 프로젝트입니다.",
         link: "https://www.codehows.com/",
       },
       {
@@ -101,7 +101,7 @@ export default function Project() {
         concept:
           "직관적인 UI와 효율적인 정보 설계로 비즈니스 가치를 전달하는 브랜드 웹사이트",
         detail:
-          "IT 기업의 정체성을 보여주기 위한 단일 브랜딩 웹사이트로, 사업 영역 소개와 고객 문의 확보에 집중했습니다...",
+          "IT 기업의 정체성을 보여주기 위한 단일 브랜딩 웹사이트로, 사업 영역 소개와 고객 문의 확보에 집중했습니다.",
         link: "http://www.bestco.kr/",
       },
       {
@@ -117,7 +117,7 @@ export default function Project() {
         concept:
           "마을의 정체성을 담은 디자인과 실무자 편의를 극대화한 페이지 편집 시스템",
         detail:
-          "지역 마을의 축제와 체험 프로그램을 홍보하기 위해 제작된 웹사이트입니다...",
+          "지역 마을의 축제와 체험 프로그램을 홍보하기 위해 제작된 웹사이트입니다.",
         link: "https://www.xn--v69a26wxzc7vev0j.com/",
       },
       {
@@ -132,8 +132,7 @@ export default function Project() {
         modalBg: "/images/project-modal08.jpg",
         concept:
           "빛의 역동성을 담은 영상 배너와 정교한 포트폴리오를 갖춘 조명 브랜드 플랫폼",
-        detail:
-          "경관 조명 전문 기업의 가치를 높이기 위한 브랜드 사이트입니다...",
+        detail: "경관 조명 전문 기업의 가치를 높이기 위한 브랜드 사이트입니다.",
         link: "hklighting.co.kr",
       },
       {
@@ -148,7 +147,7 @@ export default function Project() {
         modalBg: "/images/project-modal09.jpg",
         concept:
           "게이미피케이션 요소와 정교한 로컬 로직으로 구현한 체험형 적성 검사 플랫폼",
-        detail: "사천시 방문객들을 위해 제작된 항공적성 체험 프로그램입니다...",
+        detail: "사천시 방문객들을 위해 제작된 항공적성 체험 프로그램입니다.",
         link: "https://aviation-test-frontend.vercel.app/",
       },
       {
@@ -164,7 +163,7 @@ export default function Project() {
         concept:
           "QR 모바일 캔버스를 활용한 사용자 참여형 인터랙티브 교육 플랫폼",
         detail:
-          "성체험 버스 내 터치스크린과 사용자의 스마트폰을 연동한 교육용 프로그램으로...",
+          "성체험 버스 내 터치스크린과 사용자의 스마트폰을 연동한 교육용 프로그램으로.",
         link: "http://gnsay1388.co.kr/",
       },
     ],

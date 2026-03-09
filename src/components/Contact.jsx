@@ -15,7 +15,7 @@ export default function Contact() {
   const [commentInput, setCommentInput] = useState("");
   const [comments, setComments] = useState([]);
   const [visualEffects, setVisualEffects] = useState([]);
-  const [isLiking, setIsLiking] = useState(false); // ✨ 중복 클릭 방지 상태 추가
+  const [isLiking, setIsLiking] = useState(false);
 
   const container = useRef(null);
   const chatScrollRef = useRef(null);
@@ -93,7 +93,7 @@ export default function Contact() {
       .then((res) => res.json())
       .then((data) => {
         setLikes(data.likes);
-        setHasLiked(data.userHasLiked || false); // ✨ 초기 렌더링 시 서버 상태 반영
+        setHasLiked(data.userHasLiked || false);
         setComments([...(data.comments || [])].reverse());
         if (chatScrollRef.current) chatScrollRef.current.scrollTop = 0;
       })
@@ -101,7 +101,7 @@ export default function Contact() {
   }, []);
 
   const handleLike = () => {
-    if (isLiking) return; // 통신 중 중복 클릭 방지
+    if (isLiking) return;
     setIsLiking(true);
 
     fetch(`${API_URL}/like`, { method: "POST" })
@@ -109,9 +109,9 @@ export default function Contact() {
       .then((data) => {
         if (data.success) {
           setLikes(data.likes);
-          setHasLiked(data.userHasLiked); // ✨ 서버 응답에 따라 상태 토글
+          setHasLiked(data.userHasLiked);
           if (data.userHasLiked) {
-            animateLike(); // 하트가 활성화될 때만 애니메이션 실행
+            animateLike();
           }
         }
       })
@@ -205,7 +205,7 @@ export default function Contact() {
               className={`chat-like-btn ${hasLiked ? "liked" : ""}`}
               onClick={handleLike}
               ref={likeBtnRef}
-              disabled={isLiking} // ✨ 클릭 연타 방지
+              disabled={isLiking}
             >
               {hasLiked ? "❤️" : "🤍"}
             </button>
